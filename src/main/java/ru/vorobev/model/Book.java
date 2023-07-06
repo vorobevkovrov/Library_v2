@@ -16,15 +16,15 @@ public class Book {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "title")
     private String title;
     @Column(name = "author")
     private String author;
     @Column(name = "year_of_publication")
     private int yearOfPublication;
-    @ManyToOne
-    @JoinColumn(name = "owner_id", referencedColumnName = "id")
+    @ManyToOne()
+    @JoinColumn(name = "owner", nullable = false)
     private Person owner;
 
     public String getTitle() {

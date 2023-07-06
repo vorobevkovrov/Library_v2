@@ -105,6 +105,9 @@ public class SpringConfig implements WebMvcConfigurer {
         em.setPackagesToScan("ru.vorobev.model");
 
         final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        Properties additionalProperties = new Properties();
+        additionalProperties.put("hibernate.default_schema", "Public");
+        em.setJpaProperties(additionalProperties);
         em.setJpaVendorAdapter(vendorAdapter);
         em.setJpaProperties(hibernateProperties());
         return em;
