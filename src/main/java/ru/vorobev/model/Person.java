@@ -19,10 +19,10 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
     @Column(name = "name")
     private String Name;
-    @OneToMany(mappedBy = "author")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner")
     private List<Book> books;
 
     public String getName() {
